@@ -56,13 +56,11 @@ namespace battleships
 			while (!game.IsOver())
 			{
 				game.MakeStep();
-				if (settings.Interactive)
-				{
-					vis.Visualize(game);
-					if (game.AiCrashed)
-						Console.WriteLine(game.LastError.Message);
-					Console.ReadKey();
-				}
+			    if (!settings.Interactive) continue;
+			    vis.Visualize(game);
+			    if (game.AiCrashed)
+			        Console.WriteLine(game.LastError.Message);
+			    Console.ReadKey();
 			}
 		}
 

@@ -51,6 +51,7 @@
     <Compile Include="Ai.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="GameVisualizer.cs" />
+    <Compile Include="IProcessMonitor.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="MapGenerator.cs" />
     <Compile Include="Map_should.cs" />

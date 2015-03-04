@@ -7,7 +7,7 @@ namespace battleships
 {
 	public class AiTester
 	{
-		private static readonly Logger resultsLog = LogManager.GetLogger("results");
+        private static readonly Logger resultsLog = LogManager.GetLogger("results");
 		private readonly Settings settings;
 
 		public AiTester(Settings settings)

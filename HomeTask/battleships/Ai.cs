@@ -8,7 +8,7 @@ namespace battleships
 {
 	public class Ai
 	{
-		private static readonly Logger log = LogManager.GetCurrentClassLogger();
+        private static readonly Logger log = LogManager.GetCurrentClassLogger();
 		private Process process;
 		private readonly string exePath;
 	    public event Action<Process> RegisterProcess;

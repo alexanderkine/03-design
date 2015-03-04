@@ -9,7 +9,7 @@ namespace battleships
 {
 	public class ProcessMonitor : IProcessMonitor
 	{
-		private static readonly Logger log = LogManager.GetCurrentClassLogger();
+        private static readonly Logger log = LogManager.GetCurrentClassLogger();
 		private readonly object locker = new object();
 		private readonly long memoryLimit;
 		private readonly List<Process> processes = new List<Process>();

@@ -7,9 +7,8 @@ namespace battleships
 {
 	public class AiTester
 	{
-        private static readonly Logger resultsLog = LogManager.GetLogger("results");
 		private readonly Settings settings;
-
+        public event Action<string> WriteLogInfo;
 		public AiTester(Settings settings)
 		{
 			this.settings = settings;
@@ -79,7 +78,7 @@ namespace battleships
 			var score = efficiencyScore - crashPenalty - badFraction;
 			var headers = FormatTableRow(new object[] { "AiName", "Mean", "Sigma", "Median", "Crashes", "Bad%", "Games", "Score" });
 			var message = FormatTableRow(new object[] { ai.Name, mean, sigma, median, crashes, badFraction, gamesPlayed, score });
-			resultsLog.Info(message);
+            WriteLogInfo(message);
 			Console.WriteLine();
 			Console.WriteLine("Score statistics");
 			Console.WriteLine("================");

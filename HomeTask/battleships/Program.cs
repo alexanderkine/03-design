@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Threading;
+using NLog;
 
 namespace battleships
 {
@@ -10,7 +11,7 @@ namespace battleships
 	{
 		private static void Main(string[] args)
 		{
-			Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
+			Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;          
 			if (args.Length == 0)
 			{
 				Console.WriteLine("Usage: {0} <ai.exe>", Process.GetCurrentProcess().ProcessName);
@@ -18,9 +19,11 @@ namespace battleships
 			}
 			var aiPath = args[0];
 			var settings = new Settings("settings.txt");
-			var tester = new AiTester(settings);
+			var aiTester = new AiTester(settings);
+            var resultsLog = LogManager.GetLogger("results");
+            aiTester.WriteLogInfo += resultsLog.Info;
 			if (File.Exists(aiPath))
-				tester.TestSingleFile(aiPath);
+				aiTester.TestSingleFile(aiPath);
 			else
 				Console.WriteLine("No AI exe-file " + aiPath);
 		}
